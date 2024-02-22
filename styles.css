@@ -20,30 +20,36 @@ a {
   }
 
   .flex-container {
+    
     display: flex;
     flex-wrap: wrap; /* Allow for multiple rows */
     justify-content: space-between; /* Distribute items evenly */
     margin:10px;
+    padding:2px;
     
   }
-  .flex-item {
+  .imageContainer {
     width: calc(33.33% - 20px);
-    height:200px;
+    /* height:200px; */
     margin-bottom: 20px;
     border: 1px solid #ccc;
     padding: 10px;
-    align-items:center;
+    
     box-sizing: border-box;
     overflow: hidden;
   }
-  .flex-item img {
+  .imageContainer img {
     width: 100%;
     height: auto;
     display: block;
+    top: 50%;
+
+    
   }
 .button-container {
     text-align: center;
     margin-top: 20px;
+    vertical-align: center;
   }
 .button {
     padding: 10px 20px;
@@ -52,4 +58,18 @@ a {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }
+  .image-item {
+    width: 200px; /* Set the width of each image */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+
+/* Media Query */
+
+@media only screen and (max-width: 650px) {
+    .imageContainer {
+        width: calc(50% - 20px);
+        
+      }
   }

@@ -19,11 +19,16 @@ async function fetchImages(url) {
 
     // Loop through the image URLs
     imageUrls.forEach(imageUrl => {
+        
+
+
+
       // Create a div element for each image
       const imageDiv = document.createElement('div');
-      imageDiv.classList.add('flex-item');
+      imageDiv.classList.add('imageContainer');
       // Create an image element
       const imageElement = document.createElement('img');
+      imageElement.classList.add('image-item'); // css class for image
       imageElement.src = imageUrl; // Set the src attribute to the image URL
       // Append the image element to the div
       imageDiv.appendChild(imageElement);
