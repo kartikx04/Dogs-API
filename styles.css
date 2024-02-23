@@ -63,6 +63,17 @@ a {
     width: 200px; /* Set the width of each image */
     height: auto; /* Maintain aspect ratio */
   }
+.scrollTop{
+  border:0px solid;
+  background-color:gray;
+  height:40px;
+  width:40px;
+  position:fixed;
+  right:20px;
+  bottom:30px;
+  border-radius:20px;
+  cursor:pointer;
+}
 
 
 /* Media Query */
@@ -73,3 +84,10 @@ a {
         
       }
   }
+ 
+    /* Optionally, hide the button again on even larger screens: */
+@media (min-height: 2500px) {
+      body .scrollTop {
+        display: none;
+      }
+    }

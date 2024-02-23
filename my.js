@@ -31,9 +31,16 @@ populateImages("image-container",'https://dog.ceo/api/breeds/image/random/6');
 
 // button
 
+//Load more
 const btn = document.querySelector(".button");
 btn.addEventListener("click",function(){
     populateImages("image-container","https://dog.ceo/api/breeds/image/random/3")
 })
 
-    
+//Scroll to top
+
+const scroll = document.querySelector(".scrollTop");
+
+scroll.addEventListener("click",function(){
+    window.scrollTo({top:0,behavior:"smooth"})
+})
