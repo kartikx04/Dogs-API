@@ -19,10 +19,6 @@ async function fetchImages(url) {
 
     // Loop through the image URLs
     imageUrls.forEach(imageUrl => {
-        
-
-
-
       // Create a div element for each image
       const imageDiv = document.createElement('div');
       imageDiv.classList.add('imageContainer');
