@@ -11,13 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <form action="login.php" method="post"></form>
     <!-- Navbar -->
     <nav>
         <ul>
         <li><a href="#">Dogs</a></li>
           <li><a href="#">Home</a></li>
           <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a  href="#" id="openCardBtn">Login</a></li>
         </ul>
     </nav>
 
@@ -26,15 +27,44 @@
         
     </div>
 
-        <!-- Button Container -->
-    <div class="button-container">
-        <button class="button">Load More</button>
+        <!-- Loading icon -->
+    <div class="loading-icon" id="loadingIcon">
+        <div class="spinner"></div>
     </div>
+    <!-- scroll Top -->
     <div class="scrollContainer">
         <button class="scrollTop">Top</button>
     </div>
 
+    <!-- login card -->
+    
+  <div id="cardContainer" class="card-container">
+    <div class="card">
+
+      <div class="card-header">
+        <h2>LOGIN / SIGNUP</h2>
+        <button id="closeCardBtn" class="close-card-btn">X</button>
+      </div>
+
+      <div class="card-body">
+        <form id="loginForm">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+          <br>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+          <br>
+          <button type="submit">Login</button>
+        </form>
+        <div id="message"></div>
+      </div>
+
+    </div>
+  </div>
+
     <!-- script -->
     <script src="my.js"></script>
+
+    
 </body>
 </html>
