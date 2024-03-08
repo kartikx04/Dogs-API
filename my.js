@@ -113,39 +113,41 @@ const form = document.getElementById('loginForm');
 const messageDiv = document.getElementById('message');
 
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-  // Perform client-side validation if needed
-
-  // Send the login request to the server
-  sendLoginRequest(username, password);
+    // Send the login request to the server
+    sendLoginRequest(username, password);
 });
 
 function sendLoginRequest(username, password) {
-  // Create an XMLHttpRequest object
-  const xhr = new XMLHttpRequest();
+    // Create an XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
 
-  // Open a POST request to the server-side script
-  xhr.open('POST', 'login.php', true);
+    // Open a POST request to the server-side script
+    xhr.open('POST', 'login.php', true);
 
-  // Set the request header for sending form data
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // Set the request header for sending JSON data
+    xhr.setRequestHeader('Content-Type', 'application/json');
 
-  // Define the callback function for handling the server response
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      // Login successful
-      messageDiv.textContent = 'Login successful!';
-      // Redirect the user or perform additional actions
-    } else {
-      // Login failed
-      messageDiv.textContent = 'Invalid username or password';
-    }
-  };
+    // Define the callback function for handling the server response
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            const response = xhr.responseText;
+            messageDiv.textContent = response;
+        } else {
+            messageDiv.textContent = 'An error occurred. Please try again.';
+        }
+    };
 
-  // Send the request with the username and password
-  xhr.send(`username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
+    // Send the request with the username and password as JSON
+    const data = JSON.stringify({ username, password });
+    
+    xhr.send(data);
 }
+
+
+
+
