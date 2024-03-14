@@ -30,7 +30,7 @@ a {
   }
   .imageContainer {
     width: calc(33.33% - 20px);
-    height:200px;
+    height:300px;
     
     margin-bottom: 20px;
     border: 1px solid #ccc;

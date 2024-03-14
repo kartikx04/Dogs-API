@@ -106,3 +106,48 @@ window.addEventListener('click', (e) => {
     cardContainer.style.display = 'none';
   }
 });
+
+// LOGIN Details 
+
+const form = document.getElementById('loginForm');
+const messageDiv = document.getElementById('message');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Send the login request to the server
+    sendLoginRequest(username, password);
+});
+
+function sendLoginRequest(username, password) {
+    // Create an XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
+
+    // Open a POST request to the server-side script
+    xhr.open('POST', 'login.php', true);
+
+    // Set the request header for sending JSON data
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    // Define the callback function for handling the server response
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            const response = xhr.responseText;
+            messageDiv.textContent = response;
+        } else {
+            messageDiv.textContent = 'An error occurred. Please try again.';
+        }
+    };
+
+    // Send the request with the username and password as JSON
+    const data = JSON.stringify({ username, password });
+    
+    xhr.send(data);
+}
+
+
+
+
